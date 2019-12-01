@@ -10,7 +10,16 @@ import {CardComponent} from './components/card/card.component';
 import {SidenavComponent} from './components/sidenav/sidenav.component';
 import {RegisterComponent} from './components/register/register.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {
+  MatAutocompleteModule,
+  MatButtonModule, MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import {RouterModule} from '@angular/router';
 import {AuthGuard} from './guards';
 import {CardService} from './services/card.service';
@@ -18,6 +27,8 @@ import {AuthenticationService} from './services/authentication.service';
 import {AlertService} from './services/alert.service';
 import {DeckService} from './services/deck.service';
 import {AppRoutingModule} from './app-routing.module';
+import { CardSearchComponent } from './components/card-search/card-search.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +38,8 @@ import {AppRoutingModule} from './app-routing.module';
     DeckComponent,
     CardComponent,
     SidenavComponent,
-    RegisterComponent
+    RegisterComponent,
+    CardSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +50,13 @@ import {AppRoutingModule} from './app-routing.module';
     MatIconModule,
     MatButtonModule,
     RouterModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [
       AuthGuard,

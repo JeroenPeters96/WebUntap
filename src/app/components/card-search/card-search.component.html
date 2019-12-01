@@ -1,0 +1,31 @@
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="5%"></div>
+  <div class="item item-2" fxFlex="55%">
+    <div class="scroll">
+      <div class="content">
+        <div fxLayoutAlign="center">
+          <h2>Search for a card</h2>
+        </div>
+        <div class="item">
+        <mat-form-field style="width: 60%">
+          <label>
+            <input matInput placeholder="Please fill in a cardname!" [formControl]="searchCardCtrl" [matAutocomplete]="auto">
+          </label>
+          <mat-autocomplete #auto="matAutocomplete">
+          </mat-autocomplete>
+        </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-card *ngIf="hide">
+    <mat-option *ngFor="let card of filteredCards" [value]="card">
+      <div (click)="selectCard(card)"><span>{{card}}</span></div>
+    </mat-option>
+  </mat-card>
+</div>

@@ -3,7 +3,52 @@
   height: 100%;
 }
 
-.sidenavHeader {
+/*.sidenavHeader {*/
+/*  padding-top: 20px;*/
+/*  padding-bottom: 20px;*/
+/*}*/
+
+
+.sideNavHeader {
   padding-top: 20px;
   padding-bottom: 20px;
+  background: #007991; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #78ffd6, #007991); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #78ffd6, #007991); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.sideNavProfilePic {
+  border-radius: 50%;
+  width: 100%;
+  max-width: 200px;
+}
+
+.sideNavProfileText {
+  color: white;
+}
+
+.sideNavProfileInfo {
+  color: #e2e3e9;
+}
+
+.sideNavFooterButton {
+  font-size: 18px;
+  width: 50%;
+  color: white;
+  border-radius: 30px;
+  background: #007991; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, purple, lightpink); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, purple, lightpink); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.sideNavFooter {
+  margin-top: 10px;
+}
+
+.sideNavList .mat-icon {
+  font-size: 20px;
+}
+
+.pay-card {
+  max-width: 200px;
 }
