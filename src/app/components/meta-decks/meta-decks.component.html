@@ -1,0 +1,18 @@
+
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="2%">
+  <div class="item item-1" fxFlex="5%"></div>
+  <div class="item item-2" fxFlex="55%">
+    <div class="scroll">
+      <div class="content">
+        <h2>Meta Decks</h2>
+      </div>
+      <div *ngFor="let deck of decks">
+        <app-deck-card [deck]="deck"></app-deck-card>
+      </div>
+    </div>
+  </div>
+</div>
