@@ -29,6 +29,9 @@ import {DeckService} from './services/deck.service';
 import {AppRoutingModule} from './app-routing.module';
 import { CardSearchComponent } from './components/card-search/card-search.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { DeckCardComponent } from './components/deck-card/deck-card.component';
+import { MetaDecksComponent } from './components/meta-decks/meta-decks.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +42,13 @@ import {ReactiveFormsModule} from '@angular/forms';
     CardComponent,
     SidenavComponent,
     RegisterComponent,
-    CardSearchComponent
+    CardSearchComponent,
+    DeckCardComponent,
+    MetaDecksComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NoopAnimationsModule,
     FlexLayoutModule,
     MatToolbarModule,

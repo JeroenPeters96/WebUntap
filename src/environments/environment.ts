@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   accountApiUrl: '',
   cardApiUrl: 'http://localhost:8082',
-  deckApiUrl: ''
+  deckApiUrl: 'http://localhost:8081'
 };
 /*
  * For easier debugging in development mode, you can import the following file

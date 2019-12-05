@@ -22,10 +22,11 @@
         </div>
       </div>
     </div>
+    <mat-card *ngIf="hide">
+      <mat-option *ngFor="let card of filteredCards" [value]="card">
+        <div (click)="selectCard(card)"><span>{{card}}</span></div>
+      </mat-option>
+    </mat-card>
   </div>
-  <mat-card *ngIf="hide">
-    <mat-option *ngFor="let card of filteredCards" [value]="card">
-      <div (click)="selectCard(card)"><span>{{card}}</span></div>
-    </mat-option>
-  </mat-card>
+
 </div>

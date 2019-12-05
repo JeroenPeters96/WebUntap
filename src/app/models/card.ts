@@ -9,4 +9,6 @@ export class Card {
   text: string;
   imageUrl: string;
   artUrl: string;
+  price: number;
+  setName: string;
 }

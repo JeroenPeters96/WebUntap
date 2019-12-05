@@ -1,3 +1,40 @@
-<p>
-  deck works!
-</p>
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="start"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <h2>{{deck.deckname}}</h2>
+  <h4>User: {{username}}</h4>
+  <div fxFlex="15%" class="item item-1" style="padding-left: 5px">
+    <mat-list dense>
+      <h3 matSubheader>Deck</h3>
+      <mat-list-item (click)="changeView()">Change view style</mat-list-item>
+      <mat-list-item>Deck Price:</mat-list-item>
+      <mat-list-item (click)="copyDeck()">Copy deck</mat-list-item>
+      <mat-divider [inset]="true"></mat-divider>
+      <h3 matSubheader>Cards</h3>
+      <mat-list-item>Add new card:</mat-list-item>
+      <mat-form-field>
+        <label>
+          <input matInput placeholder="cardname" [formControl]="searchCardCtrl" [matAutocomplete]="auto">
+        </label>
+      </mat-form-field>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-card *ngIf="hide">
+          <mat-option *ngFor="let card of filteredCards" [value]="card">
+            <div (click)="addCard(card)"><span>{{card}}</span></div>
+          </mat-option>
+        </mat-card>
+      </mat-autocomplete>
+      <mat-divider [inset]="true"></mat-divider>
+      <h3 matSubheader>Edit</h3>
+      <mat-list-item (click)="deckArt()"> Set deck art </mat-list-item>
+      <mat-list-item (click)="changeName()"> Change name </mat-list-item>
+      <mat-list-item (click)="changeFormat()"> Change format </mat-list-item>
+      <mat-divider [inset]="true"></mat-divider>
+      <h3 matSubheader (click)="deleteDeck()"> Delete Deck</h3>
+    </mat-list>
+  </div>
+
+</div>

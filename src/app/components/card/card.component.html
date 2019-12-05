@@ -1,10 +1,24 @@
 <div class="container"
      fxLayout
      fxLayout.xs="column"
-     fxLayoutAlign="start"
+     fxLayoutAlign="center"
      fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
-  <div class="item item-1" fxFlex="5%"></div>
-
-
+     fxLayoutGap.xs="0"
+     style="padding-top: 10px;">
+  <div class="item item-1" style="padding-left: 5px;" fxFlex="30%">
+    <img mat-card-image src="{{card.imageUrl}}" alt="Card artwork" style="max-width: 100%;">
+  </div>
+  <div class="item item-2" fxFlex="30%">
+    <h3>Mana cost</h3>
+    <p>{{card.manaCost}}</p>
+    <h3>Type:</h3>
+    <p>{{card.type}}</p>
+    <h3>Effect:</h3>
+    <p>{{card.text}}</p>
+    <h3>Printed in:</h3>
+    <p>{{card.setName}}</p>
+    <h3>Price:</h3>
+    <p> {{card.price | currency:'EUR':true}}</p>
+  </div>
+  <div fxFlex="50%" class="item item-3"></div>
 </div>
