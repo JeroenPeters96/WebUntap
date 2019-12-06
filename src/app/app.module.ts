@@ -32,6 +32,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { DeckCardComponent } from './components/deck-card/deck-card.component';
 import { MetaDecksComponent } from './components/meta-decks/meta-decks.component';
+import { CollectionComponent } from './components/collection/collection.component';
+import { SearchDeckComponent } from './components/search-deck/search-deck.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { MetaDecksComponent } from './components/meta-decks/meta-decks.component
     RegisterComponent,
     CardSearchComponent,
     DeckCardComponent,
-    MetaDecksComponent
+    MetaDecksComponent,
+    CollectionComponent,
+    SearchDeckComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<div class="content" fxLayoutAlign="center">
+  <h1>Search Decks</h1>
+</div>
+<mat-form-field fxLayoutAlign="center">
+<label >
+  <input matInput placeholder="Deckname"
+         [formControl]="searchDeckCtrl">
+</label>
+</mat-form-field>
+<div class="container"
+     fxLayout="row wrap"
+     fxLayoutAlign="start"
+     fxLayoutGap="2%">
+  <div *ngFor="let deck of decks">
+    <div class="item item-1" fxFlex="100%" style="margin-top: 10px">
+      <app-deck-card [deck]="deck"></app-deck-card>
+    </div>
+  </div>
+</div>
+<div style="padding-bottom: 5%"></div>

@@ -23,6 +23,7 @@ export class CardService {
   }
 
   getDeckArt(cardIds: string[]) {
+
     if (cardIds.length === 0) {
       return;
     }
@@ -31,6 +32,7 @@ export class CardService {
       newUrl = newUrl + cardIds[i] + ',';
     }
     const url = newUrl.substr(0, newUrl.length - 1);
+
     return this.http.get(url);
   }
 }

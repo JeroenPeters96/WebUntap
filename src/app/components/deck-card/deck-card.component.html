@@ -1,16 +1,13 @@
-
-<div class="container" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1%" fxLayoutAlign="center" fxFlex="20%" (click)="selectDeck()">
-  <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-    <div fxFlex="80%">
+<div class="container" (click)="selectDeck()" fxFlex="100%" fxLayout="column">
+  <mat-card-title>
+    <div fxFlex="100%">
       <h2>{{deck.deckname}}</h2>
     </div>
-    <p fxFlex="10%">
+    <p fxFlex="100%">
       Format: {{deck.format}}
     </p>
-    <p fxFlex="20%">
-    </p>
   </mat-card-title>
-  <img mat-card-image [src]="getArt()">
+  <img mat-card-image [src]="savedPicture()" style="max-width: 450px">
   Description: {{deck.description}}
 </div>
 
