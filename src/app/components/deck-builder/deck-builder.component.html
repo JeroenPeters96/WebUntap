@@ -1,0 +1,46 @@
+<div class="container">
+  <mat-card-header>
+    <mat-card-title>Create a new deck!</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field style="width: 400px">
+              <label>
+                <input matInput placeholder="Deck name" [(ngModel)]="deckName" name="deckname" required style="width: 400px;">
+              </label>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field style="width: 400px">
+              <label>
+              <textarea matInput placeholder="Description" [(ngModel)]="deckDescription"
+                        name="deckdescription" style="width: 400px;"></textarea>
+              </label>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field style="width: 400px">
+              <mat-label>Format</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let format of formats" [value]="format" (onSelectionChange)="setFormat(format)" style="width: 400px;">
+                  {{format}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="create(deckName,deckDescription,selectedFormat)" color="primary">Create deck
+    </button>
+  </mat-card-actions>
+</div>
