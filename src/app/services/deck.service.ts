@@ -36,4 +36,8 @@ export class DeckService {
     return this.http.get(url);
   }
 
+  searchDecks(value: string) {
+      const url = environment.deckApiUrl + '/qry/name/' + value;
+      return this.http.get(url);
+  }
 }

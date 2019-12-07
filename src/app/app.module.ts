@@ -16,7 +16,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -28,12 +28,13 @@ import {AlertService} from './services/alert.service';
 import {DeckService} from './services/deck.service';
 import {AppRoutingModule} from './app-routing.module';
 import { CardSearchComponent } from './components/card-search/card-search.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { DeckCardComponent } from './components/deck-card/deck-card.component';
 import { MetaDecksComponent } from './components/meta-decks/meta-decks.component';
 import { CollectionComponent } from './components/collection/collection.component';
 import { SearchDeckComponent } from './components/search-deck/search-deck.component';
+import { DeckBuilderComponent } from './components/deck-builder/deck-builder.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SearchDeckComponent } from './components/search-deck/search-deck.compon
     DeckCardComponent,
     MetaDecksComponent,
     CollectionComponent,
-    SearchDeckComponent
+    SearchDeckComponent,
+    DeckBuilderComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,9 @@ import { SearchDeckComponent } from './components/search-deck/search-deck.compon
     MatInputModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    MatSelectModule
   ],
   providers: [
       AuthGuard,

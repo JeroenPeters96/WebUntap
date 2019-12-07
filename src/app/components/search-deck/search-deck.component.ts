@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Deck} from '../../models';
-import {debounceTime, tap} from 'rxjs/operators';
+import {debounceTime, switchMap, tap} from 'rxjs/operators';
+import {DeckService} from '../../services/deck.service';
 
 @Component({
   selector: 'app-search-deck',
@@ -11,8 +12,10 @@ import {debounceTime, tap} from 'rxjs/operators';
 export class SearchDeckComponent implements OnInit {
   searchDeckCtrl = new FormControl();
   decks: Deck[];
+  isLoading = false;
+  hide = true;
 
-  constructor() { }
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
     this.searchDeckCtrl.valueChanges
@@ -20,17 +23,17 @@ export class SearchDeckComponent implements OnInit {
         debounceTime(500),
         tap(
           () => {
-            this.filteredDecks = [];
             this.isLoading = true;
             this.hide = false;
           }),
-        switchMap(value => this.deckService.getDecksByLikeName(value))
+        switchMap(value => this.deckService.searchDecks(value))
       )
       .subscribe(data => {
-        this.filteredDecks = data;
+        const anyData: any = data;
+        this.decks = anyData;
         this.hide = true;
         console.log(data);
-        console.log(this.filteredDecks);
+        console.log(this.decks);
       });
   }
 

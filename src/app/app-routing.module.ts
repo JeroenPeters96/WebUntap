@@ -6,6 +6,7 @@ import {CardSearchComponent} from './components/card-search/card-search.componen
 import {DeckComponent} from './components/deck/deck.component';
 import {MetaDecksComponent} from './components/meta-decks/meta-decks.component';
 import {SearchDeckComponent} from './components/search-deck/search-deck.component';
+import {DeckBuilderComponent} from './components/deck-builder/deck-builder.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'searchcard', component: CardSearchComponent},
   {path: 'deck', component: DeckComponent},
   {path: 'meta', component: MetaDecksComponent},
-  {path: 'searchdeck', component: SearchDeckComponent}
+  {path: 'searchdeck', component: SearchDeckComponent},
+  {path: 'deckbuilder', component: DeckBuilderComponent}
 ];
 
 @NgModule({
