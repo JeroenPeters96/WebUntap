@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Card, Deck} from '../../models';
 import {CardService} from '../../services/card.service';
 import {debounceTime} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-deck-card',
@@ -15,14 +16,14 @@ export class DeckCardComponent implements OnInit {
   picture = '';
   getting = false;
 
-  constructor(private cardService: CardService) {
+  constructor(private cardService: CardService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
   selectDeck() {
-
+      this.router.navigate(['/deck'], {queryParams: {deckId: this.deck.id}});
   }
 
   savedPicture() {

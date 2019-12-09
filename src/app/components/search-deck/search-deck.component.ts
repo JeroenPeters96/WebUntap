@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import {Deck} from '../../models';
 import {debounceTime, switchMap, tap} from 'rxjs/operators';
 import {DeckService} from '../../services/deck.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-deck',
@@ -15,7 +16,8 @@ export class SearchDeckComponent implements OnInit {
   isLoading = false;
   hide = true;
 
-  constructor(private deckService: DeckService) { }
+  constructor(private deckService: DeckService,
+  private router: Router) { }
 
   ngOnInit() {
     this.searchDeckCtrl.valueChanges
@@ -32,9 +34,6 @@ export class SearchDeckComponent implements OnInit {
         const anyData: any = data;
         this.decks = anyData;
         this.hide = true;
-        console.log(data);
-        console.log(this.decks);
       });
   }
-
 }

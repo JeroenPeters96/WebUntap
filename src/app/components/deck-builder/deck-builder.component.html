@@ -29,7 +29,7 @@
             <mat-form-field style="width: 400px">
               <mat-label>Format</mat-label>
               <mat-select>
-                <mat-option *ngFor="let format of formats" [value]="format" (onSelectionChange)="setFormat(format)" style="width: 400px;">
+                <mat-option *ngFor="let format of formats" [value]="format" (onSelectionChange)="setFormat(format)" style="width: 400px;" required>
                   {{format}}
                 </mat-option>
               </mat-select>
@@ -40,7 +40,8 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="create(deckName,deckDescription,selectedFormat)" color="primary">Create deck
+    <button mat-raised-button (click)="create()" color="primary">
+      Create deck
     </button>
   </mat-card-actions>
 </div>

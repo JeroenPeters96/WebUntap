@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button>
+  <button mat-icon-button *ngIf="logged">
     <mat-icon (click)="sidenav.toggle(); toggleIcon()">{{menuIcon}}</mat-icon>
   </button>
   <a mat-button [routerLink]="''"><h1>UpkeepDraw</h1></a>
   <span style="width: 15px;"></span>
-  <div>
+  <div *ngIf="logged">
   <a mat-button [routerLink]="'/deckbuilder'"> Deck Builder </a>
   <a mat-button [routerLink]="'/searchcard'"> Cards </a>
   <a mat-button [routerLink]="'/searchdeck'"> Search Decks </a>

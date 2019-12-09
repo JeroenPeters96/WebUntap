@@ -1,5 +1,5 @@
 <div class="sidenavContent">
-  <div *ngIf="!notOnAuth">
+  <div *ngIf="logged">
     <div class="sidenavHeader">
       <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
        <div class="item item-1" fxFlex></div>
@@ -46,6 +46,7 @@
       </mat-action-list>
     </div>
     <div class="sideNavFooter" fxLayoutAlign="center">
-      <button class="sideNavFooterButton" mat-button fxLayoutAlign="center">Logout</button>
+      <button class="sideNavFooterButton" mat-button fxLayoutAlign="center" (click)="logout()">Logout</button>
     </div>
   </div>
+</div>

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  accountApiUrl: '',
+  accountApiUrl: 'http://localhost:8080',
   cardApiUrl: 'http://localhost:8082',
   deckApiUrl: 'http://localhost:8081'
 };

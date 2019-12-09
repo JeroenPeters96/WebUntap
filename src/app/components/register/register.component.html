@@ -1,3 +1,48 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <mat-card-header>
+    <mat-card-title>Register</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <h5>Please fill in your user information</h5>
+    <form class="mat-form-field">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <label>
+                <input matInput placeholder="Username" [(ngModel)]="username" name="username" required class="example-full-width">
+              </label>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <label>
+                <input matInput placeholder="Email" [(ngModel)]="email" name="email" required email="true" class="example-full-width">
+              </label>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <label>
+                <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required class="example-full-width">
+              </label>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-card-actions>
+              <button mat-raised-button (click)="register()" color="primary">Register</button>
+            </mat-card-actions>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <mat-spinner *ngIf="showSpinner" mode="indeterminate"></mat-spinner>
+  </mat-card-content>
+  <p *ngIf="hide">Not a valid email password combination</p>
+</div>

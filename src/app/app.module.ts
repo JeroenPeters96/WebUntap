@@ -16,7 +16,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatSelectModule,
+  MatListModule, MatProgressSpinnerModule, MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -35,6 +35,7 @@ import { MetaDecksComponent } from './components/meta-decks/meta-decks.component
 import { CollectionComponent } from './components/collection/collection.component';
 import { SearchDeckComponent } from './components/search-deck/search-deck.component';
 import { DeckBuilderComponent } from './components/deck-builder/deck-builder.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { DeckBuilderComponent } from './components/deck-builder/deck-builder.com
     MetaDecksComponent,
     CollectionComponent,
     SearchDeckComponent,
-    DeckBuilderComponent
+    DeckBuilderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { DeckBuilderComponent } from './components/deck-builder/deck-builder.com
     ReactiveFormsModule,
     MatCardModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [
       AuthGuard,
