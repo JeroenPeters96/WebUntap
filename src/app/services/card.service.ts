@@ -19,8 +19,6 @@ export class CardService {
   }
 
   getCards(cardIds: string[]) {
-    console.log('test')
-    console.log(cardIds);
     if (cardIds.length === 0) {
       return;
     }

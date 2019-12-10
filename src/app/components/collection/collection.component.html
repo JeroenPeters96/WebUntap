@@ -1,3 +1,98 @@
-<p>
-  collection works!
-</p>
+<div  style="height: 90%">
+  <h2>Your collection</h2>
+  <mat-card>
+    <div fxFlex="20%" class="item item-1">
+      <h3>Add Card:</h3>
+      <mat-form-field fxLayoutAlign="start">
+        <label>
+          <input matInput placeholder="Cardname"
+                 [formControl]="searchCardCtrl">
+        </label>
+      </mat-form-field>
+      <div *ngIf="hide">
+        <mat-option *ngFor="let card of filteredCardNames" [value]="card">
+          <div (click)="addCard(card)"><span>{{card}}</span></div>
+        </mat-option>
+      </div>
+    </div>
+    <div fxFlex="80%">
+      <h3>Collection:</h3>
+      <div (click)="switchStyles()"><p>Switch display</p></div>
+      <div *ngIf="!hideStyle">
+        <div fxFlex="33%">
+          <div *ngIf="getLand().length!=0">
+            <h4>Lands</h4>
+            <p *ngFor="let card of getLand()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}}  <button (click)="increaseAmount(card)">+</button> {{card.cardname}} </p>
+          </div>
+          <div *ngIf="getCreature().length!=0">
+            <h4>Creatures</h4>
+            <p *ngFor="let card of getCreature()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
+          </div>
+        </div>
+        <div fxFlex="33%">
+          <div *ngIf="getInstant().length!=0">
+            <h4>Instants</h4>
+            <p *ngFor="let card of getInstant()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
+          </div>
+          <div *ngIf="getSorc().length!=0">
+            <h4>Sorceries</h4>
+            <p *ngFor="let card of getSorc()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
+          </div>
+        </div>
+        <div fxFlex="33%">
+          <div *ngIf="getArt().length!=0">
+            <h4>Artifacts</h4>
+            <p *ngFor="let card of getArt()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
+          </div>
+          <div *ngIf="getEnch().length!=0">
+            <h4>Enchantments</h4>
+            <p *ngFor="let card of getEnch()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
+          </div>
+          <div *ngIf="getPlane().length!=0">
+            <h4>Planeswalkers</h4>
+            <p *ngFor="let card of getPlane()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div *ngIf="hideStyle">
+        <div fxFlex="33%">
+          <div *ngIf="getLand().length!=0">
+            <h4>Lands</h4>
+            <p *ngFor="let card of getLand()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
+          </div>
+          <div *ngIf="getCreature().length!=0">
+            <h4>Creatures</h4>
+            <p *ngFor="let card of getCreature()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"> </p>
+          </div>
+        </div>
+        <div fxFlex="33%">
+          <div *ngIf="getInstant().length!=0">
+            <h4>Instants</h4>
+            <p *ngFor="let card of getInstant()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
+          </div>
+          <div *ngIf="getSorc().length!=0">
+            <h4>Sorceries</h4>
+            <p *ngFor="let card of getSorc()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
+          </div>
+        </div>
+        <div fxFlex="33%">
+          <div *ngIf="getArt().length!=0">
+            <h4>Artifacts</h4>
+            <p *ngFor="let card of getArt()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
+          </div>
+          <div *ngIf="getEnch().length!=0">
+            <h4>Enchantments</h4>
+            <p *ngFor="let card of getEnch()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
+          </div>
+          <div *ngIf="getPlane().length!=0">
+            <h4>Planeswalkers</h4>
+            <p *ngFor="let card of getPlane()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

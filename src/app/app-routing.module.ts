@@ -10,6 +10,8 @@ import {DeckBuilderComponent} from './components/deck-builder/deck-builder.compo
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
 import {AuthGuard} from './guards';
+import {YourComponent} from './components/your/your.component';
+import {CollectionComponent} from './components/collection/collection.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path: 'searchdeck', component: SearchDeckComponent, canActivate: [AuthGuard]},
   {path: 'deckbuilder', component: DeckBuilderComponent, canActivate: [AuthGuard]},
   {path: 'auth', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'your', component: YourComponent},
+  {path: 'collection', component: CollectionComponent}
 ];
 
 @NgModule({

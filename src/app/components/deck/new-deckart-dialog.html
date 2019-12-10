@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Select new artwork for the deck</h2>
+<mat-dialog-content>
+</mat-dialog-content>
+<span></span>
+<p>Card:</p>
+<mat-form-field>
+  <label>
+    <input matInput placeholder="Enter card here..." [formControl]="searchCardCtrl" [matAutocomplete]="auto">
+  </label>
+</mat-form-field>
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-card>
+    <mat-option *ngFor="let card of filteredCardNames" [value]="card">
+      <div (click)="setDeckArt(card)"><span>{{card}}</span></div>
+    </mat-option>
+  </mat-card>
+</mat-autocomplete>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button [mat-dialog-close]="this.deckart">Accept</button>
+</mat-dialog-actions>

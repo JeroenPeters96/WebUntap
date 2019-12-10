@@ -5,14 +5,19 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {HomeComponent} from './components/home/home.component';
 import {HeaderComponent} from './components/header/header.component';
-import {DeckComponent} from './components/deck/deck.component';
+import {
+  DeckArtDeckDialogComponent,
+  DeckComponent,
+  DeleteDeckDialogComponent,
+  FormatDeckDialogComponent, NameDeckDialogComponent
+} from './components/deck/deck.component';
 import {CardComponent} from './components/card/card.component';
 import {SidenavComponent} from './components/sidenav/sidenav.component';
 import {RegisterComponent} from './components/register/register.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {
   MatAutocompleteModule,
-  MatButtonModule, MatCardModule,
+  MatButtonModule, MatCardModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -36,6 +41,8 @@ import { CollectionComponent } from './components/collection/collection.componen
 import { SearchDeckComponent } from './components/search-deck/search-deck.component';
 import { DeckBuilderComponent } from './components/deck-builder/deck-builder.component';
 import { LoginComponent } from './components/login/login.component';
+import { YourComponent } from './components/your/your.component';
+import { TradeComponent } from './components/trade/trade.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +59,13 @@ import { LoginComponent } from './components/login/login.component';
     CollectionComponent,
     SearchDeckComponent,
     DeckBuilderComponent,
-    LoginComponent
+    LoginComponent,
+    YourComponent,
+    DeleteDeckDialogComponent,
+    DeckArtDeckDialogComponent,
+    FormatDeckDialogComponent,
+    NameDeckDialogComponent,
+    TradeComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +86,8 @@ import { LoginComponent } from './components/login/login.component';
     MatCardModule,
     FormsModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [
       AuthGuard,
@@ -81,6 +95,12 @@ import { LoginComponent } from './components/login/login.component';
       DeckService,
       AuthenticationService,
       AlertService
+  ],
+  entryComponents: [
+    DeleteDeckDialogComponent,
+    DeckArtDeckDialogComponent,
+    FormatDeckDialogComponent,
+    NameDeckDialogComponent
   ],
   bootstrap: [AppComponent]
 })

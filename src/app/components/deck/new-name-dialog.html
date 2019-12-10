@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Choose a new name</h2>
+<mat-dialog-content></mat-dialog-content>
+<label>
+  <input matInput placeholder="Please fill in a cardname!" [(ngModel)]="this.deckName" name="name" >
+</label>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button [mat-dialog-close]="this.deckName">Accept</button>
+</mat-dialog-actions>

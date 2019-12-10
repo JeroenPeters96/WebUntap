@@ -1,12 +1,13 @@
 <div  style="height: 90%">
   <h2>{{deck.deckname}}</h2>
   <h4>User: {{username}}</h4>
+  <h4>Format: {{deck.format}}</h4>
 <mat-card>
   <div fxFlex="15%" class="item item-1" style="padding-left: 5px">
     <mat-list dense>
       <h3 matSubheader>Deck</h3>
       <mat-list-item (click)="changeView()">Change view style</mat-list-item>
-      <mat-list-item>Deck Price:</mat-list-item>
+      <mat-list-item>Deck Price: €{{price}}</mat-list-item>
       <mat-list-item (click)="copyDeck()">Copy deck</mat-list-item>
       <mat-divider [inset]="true"></mat-divider>
       <h3 matSubheader>Cards</h3>
@@ -38,74 +39,74 @@
     <div fxFlex="33%">
       <div *ngIf="getLand().length!=0">
       <h4>Lands</h4>
-      <p *ngFor="let card of getLand()">- {{getCount(card)}} +  {{card.cardname}} </p>
+        <p *ngFor="let card of lands"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}}  <button (click)="increaseAmount(card)">+</button> {{card.cardname}} </p>
       </div>
       <div *ngIf="getCreature().length!=0">
       <h4>Creatures</h4>
-      <p *ngFor="let card of getCreature()">- {{getCount(card)}} +  {{card.cardname}} </p>
+      <p *ngFor="let card of getCreature()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
       </div>
     </div>
     <div fxFlex="33%">
       <div *ngIf="getInstant().length!=0">
       <h4>Instants</h4>
-      <p *ngFor="let card of getInstant()">- {{getCount(card)}} +  {{card.cardname}} </p>
+      <p *ngFor="let card of getInstant()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
       </div>
       <div *ngIf="getSorc().length!=0">
       <h4>Sorceries</h4>
-      <p *ngFor="let card of getSorc()">- {{getCount(card)}} +  {{card.cardname}} </p>
+      <p *ngFor="let card of getSorc()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
       </div>
     </div>
     <div fxFlex="33%">
       <div *ngIf="getArt().length!=0">
       <h4>Artifacts</h4>
-      <p *ngFor="let card of getArt()">- {{getCount(card)}} +  {{card.cardname}} </p>
+      <p *ngFor="let card of getArt()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
       </div>
       <div *ngIf="getEnch().length!=0">
       <h4>Enchantments</h4>
-      <p *ngFor="let card of getEnch()">- {{getCount(card)}} +  {{card.cardname}} </p>
+      <p *ngFor="let card of getEnch()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
       </div>
       <div *ngIf="getPlane().length!=0">
         <h4>Planeswalkers</h4>
-      <p *ngFor="let card of getPlane()">- {{getCount(card)}} +  {{card.cardname}} </p>
+      <p *ngFor="let card of getPlane()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button>  {{card.cardname}} </p>
       </div>
     </div>
   </div>
 
 
 
-  <div fxFlex="75%" *ngIf="hideStyle">
+  <div fxFlex="80%" *ngIf="hideStyle">
     <div fxFlex="33%">
       <div *ngIf="getLand().length!=0">
       <h4>Lands</h4>
-      <p *ngFor="let card of getLand()">- {{getCount(card)}} + <img src="{{card.imageUrl}}" style="width: 35%"></p>
+      <p *ngFor="let card of getLand()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
       </div>
       <div *ngIf="getCreature().length!=0">
       <h4>Creatures</h4>
-      <p *ngFor="let card of getCreature()">- {{getCount(card)}} + <img src="{{card.imageUrl}}" style="width: 35%">> </p>
+      <p *ngFor="let card of getCreature()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"> </p>
       </div>
     </div>
     <div fxFlex="33%">
       <div *ngIf="getInstant().length!=0">
       <h4>Instants</h4>
-      <p *ngFor="let card of getInstant()">- {{getCount(card)}} + <img src="{{card.imageUrl}}" style="width: 35%"></p>
+      <p *ngFor="let card of getInstant()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
       </div>
       <div *ngIf="getSorc().length!=0">
       <h4>Sorceries</h4>
-      <p *ngFor="let card of getSorc()">- {{getCount(card)}} + <img src="{{card.imageUrl}}" style="width: 35%"></p>
+      <p *ngFor="let card of getSorc()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
       </div>
     </div>
     <div fxFlex="33%">
       <div *ngIf="getArt().length!=0">
       <h4>Artifacts</h4>
-      <p *ngFor="let card of getArt()">- {{getCount(card)}} + <img src="{{card.imageUrl}}" style="width: 35%"></p>
+      <p *ngFor="let card of getArt()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
       </div>
       <div *ngIf="getEnch().length!=0">
       <h4>Enchantments</h4>
-      <p *ngFor="let card of getEnch()">- {{getCount(card)}} + <img src="{{card.imageUrl}}" style="width: 35%"></p>
+      <p *ngFor="let card of getEnch()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
       </div>
       <div *ngIf="getPlane().length!=0">
       <h4>Planeswalkers</h4>
-      <p *ngFor="let card of getPlane()">- {{getCount(card)}} + <img src="{{card.imageUrl}}" style="width: 35%"></p>
+      <p *ngFor="let card of getPlane()"><button (click)="decreaseAmount(card)">-</button> {{getCount(card)}} <button (click)="increaseAmount(card)">+</button> <img src="{{card.imageUrl}}" style="width: 60%"></p>
       </div>
     </div>
   </div>

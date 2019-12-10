@@ -39,9 +39,22 @@ export class DeckCardComponent implements OnInit {
 
   getArt() {
     this.getting = true;
-    if (this.deck.deckArt === null) {
+    if (this.deck.deckArt) {
       this.getting = false;
-      return this.deck.deckArt;
+
+      const ex = [];
+      ex.push(this.deck.deckArt);
+      this.cardService.getDeckArt(ex)
+        .pipe(
+          debounceTime(1000)
+        )
+        .subscribe( data => {
+            const card: any = data;
+            const tempCard: Card = card;
+            this.picture = tempCard.artUrl;
+            return tempCard.artUrl;
+          }
+        );
     }
     if (this.deck.cards !== null && this.deck.cards.length !== 0) {
 
@@ -68,6 +81,4 @@ export class DeckCardComponent implements OnInit {
       return 'https://img.scryfall.com/cards/art_crop/front/f/a/fa56d53c-836c-483d-988d-a288d0ad91bb.jpg?1537149837';
     }
   }
-
-
 }
